@@ -239,7 +239,106 @@ echo "# adding $username to sudo and fuse groups #"
 echo "############################################"
 sleep 3
 usermod -a -G sudo $username
-usermod -a -G fuse $username ;;
+usermod -a -G fuse $username 
+
+echo "############################"
+echo "## ip spoofing protection ##"
+echo "############################"
+cat > /etc/host.conf << EOF
+order bind,hosts
+nospoof on
+EOF
+
+echo "##############################"
+echo "# Harden Network with sysctl #"
+echo "##############################"
+sleep 3
+
+cat > /etc/sysctl.conf << EOF
+# IP Spoofing protection
+net.ipv4.conf.all.rp_filter = 1
+net.ipv4.conf.default.rp_filter = 1
+
+# Ignore ICMP broadcast requests
+net.ipv4.icmp_echo_ignore_broadcasts = 1
+
+# Disable source packet routing
+net.ipv4.conf.all.accept_source_route = 0
+net.ipv6.conf.all.accept_source_route = 0 
+net.ipv4.conf.default.accept_source_route = 0
+net.ipv6.conf.default.accept_source_route = 0
+
+# Ignore send redirects
+net.ipv4.conf.all.send_redirects = 0
+net.ipv4.conf.default.send_redirects = 0
+
+# Block SYN attacks
+net.ipv4.tcp_syncookies = 1
+net.ipv4.tcp_max_syn_backlog = 2048
+net.ipv4.tcp_synack_retries = 2
+net.ipv4.tcp_syn_retries = 5
+
+# Log Martians
+net.ipv4.conf.all.log_martians = 1
+net.ipv4.icmp_ignore_bogus_error_responses = 1
+
+# Ignore ICMP redirects
+net.ipv4.conf.all.accept_redirects = 0
+net.ipv6.conf.all.accept_redirects = 0
+net.ipv4.conf.default.accept_redirects = 0 
+net.ipv6.conf.default.accept_redirects = 0
+
+# Ignore Directed pings
+net.ipv4.icmp_echo_ignore_all = 1
+EOF
+
+sysctl -p
+
+
+echo "#######################"
+echo "# installing fail2ban #"
+echo "#######################"
+sleep 2
+sudo apt-get install fail2ban -y
+echo "setting up fail2ban"
+sed -i 's/enabled = false/enabled = true/' /etc/fail2ban/jail.conf
+sed -i 's/port = sshd/port = $SSHPORT/' /etc/fail2ban/jail.conf
+sed -i 's/port = sshd/port = $SSHPORT/' /etc/fail2ban/jail.conf
+sed -i 's/maxretry = 5/maxretry = 3/' /etc/fail2ban/jail.conf
+
+echo "##########################"
+echo "## creating Diretcories ##"
+echo "##########################"
+sleep 1
+mkdir /home/$username/.pid/
+mkdir /home/$username/temp
+mkdir /home/downloads
+mkdir /home/downloads/completed
+mkdir /home/downloads/completed/tv
+mkdir /home/downloads/completed/films
+mkdir /home/downloads/completed/books
+mkdir /home/downloads/completed/music
+mkdir /home/downloads/completed/games
+mkdir /home/downloads/completed/comics
+mkdir /home/downloads/ongoing
+mkdir /home/media/
+mkdir /home/media/films
+mkdir /home/media/tv
+mkdir /home/media/music
+mkdir /home/media/books
+mkdir /home/media/games
+mkdir /home/media/comics
+mkdir /home/backups/
+mkdir /home/backups/sickbeard
+mkdir /home/backups/couchpotato
+mkdir /home/backups/headphones
+mkdir /home/backups/lazylibrarian
+mkdir /home/backups/sabnzbd
+mkdir /home/backups/comics
+mkdir /home/backups/games
+chown $username /home/*/*/
+chown $username /home/*/*/*
+chmod 777  /home/*/*;;
     
     
     "2")  echo "########################"
