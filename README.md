@@ -5,7 +5,7 @@ This is an install Script for a clean kvm vps install running ubuntu 12.04 minim
 
 This script attempts to install all necessary components and set them up from the information given in the start of the menu.sh.
 
-Before you start you will need  to edit menu.sh things you may need are one ore two dyndns/no-ip name(s) for your home and vps, you may also install an ftp server on your file server with port forwarding on your router. With that in place you will be able to run all your nzb downloads on your vps then once the download is complete post processing will move the files to your media collection on your local storage with the help of curlftps and some mount points this script will create.
+Before you start you will need  to edit menu.sh things you may need are one ore two dyndns/no-ip name(s) for your home and vps, a newzgroup account or two, access to other nzb indexers, you may also install an ftp server on your file server with port forwarding on your router. With that in place you will be able to run all your nzb downloads on your vps then once the download is complete the post processing  of sickbeard, couchpotato ect will rename and move the files to your media collection on your local storage with the help of curlftps and some mount points this script will create. That then gives you a seemless experience with your VPS and local file storage.
 
 
 To install get a kvm vps from ramnode https://clientarea.ramnode.com/aff.php?aff=838 reinstall the os with ubuntu 12.04 LTS minimal
