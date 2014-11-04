@@ -6,7 +6,7 @@ log on as root you should change the root password now with "passwd" and then co
 
 apt-get install git -y
 
-git clone https://github.com/Brownster/NZB-INSTALL-SCRIPT.git menush
+git clone https://github.com/Brownster/menu-test-with-nzb1.git menush
 
 cd menush
 
