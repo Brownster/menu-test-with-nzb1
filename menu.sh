@@ -1,61 +1,71 @@
 #!/bin/bash
 
+############################################################################
+######## You must change all the variables below to suit your setup ########
+######## alot you can leave default like the port numbers but       ########
+######## usernames hostnames ip adresses must be set by you so have ########
+######## a look below anything with a = after it generally you can  ########
+######## change                              			    ########
+############################################################################
+
+#DYNDNS / noip host name that resolves into your vps ip address
 DYNDNS=someplace.dydns-remote.com
 echo "the current setting for your DNS Host name for your VPS is Currently $DYNDNS"
-#DYNDNS / noip host name that resolves into your vps ip address
 
+#Please enter a user name for accessing sickbeard, couchpotato ect (replace "webuser")
 WEBUSER=webuser
 echo "Your current username for all web apps is $WEBUSER"
-#Please enter a user name for accessing sickbeard, couchpotato ect
 
+#Please enter a password for accessing all the web apps sickbeard, couchpotato ect (replace "webpass")
 WEBPASS=webpass
 echo "Your current web app password id $WEBPASS"
-#Please enter a password for accessing all the web apps sickbeard, couchpotato ect
 
+#Please enter a Username for Squid Proxy Server
 SQUIDUSER=squid
 echo "Squid Proxy User name is $SQUIDUSER"
-#Please enter a Username for Squid Proxy Server
 
+#Please enter a password for Squid Proxy Server
 SQUIDPASS=hideme
 echo "Your Squid Proxy password is $SQUIDPASS"
-#Please enter a password for Squid Proxy Server
 
+#squid Proxy please enter the port for web access
 SQUIDPORT=7629
 echo "The IP Port being used by Squid Proxy is $SQUIDPORT"
-#squid Proxy please enter the port for web access
 
+#SSH please enter the port for access
 SSHPORT=2022
 echo "the port remote SSH sessions will be set to is $SSHPORT"
-#SSH please enter the port for access
 
+#FTP server address eith ip address if you have static address or 
+#dyn dns / no ip account resolving to your home ip if you are dynamic
 FTPHOST=somewhere.dyndns-remote.com
 echo "Your DYNDNS host name for your home is set to $FTPHOST"
 #FTP server address eith ip address if you have static address or 
 #dyn dns / no ip account resolving to your home ip if you are dynamic
 
+#ftp user
 FTPUSER=ftpuser
 echo "Your local ftp server username is $FTPUSER"
-#ftp user
 
+#ftp password
 FTPPASS=ftppass
 echo "Your local FTP server password is $FTPPASS"
-#ftp password
 
+#film ftp location - relative to ftp home directory
 FILMFTPDIR=films
 echo "Your Local FTP directory for Films relative to ftp home directory is $FILMFTPDIR"
-#film ftp location - relative to ftp home directory
 
+#TV ftp location
 TVFTPDIR=tvseries
 echo "Your Local FTP directory for TV relative to ftp home directory is $TVFTPDIR"
-#TV ftp location
 
+#Music ftp location
 MUSICFTPDIR=music
 echo "Your Local FTP directory for Music relative to ftp home directory is $MUSICFTPDIR"
-#Music ftp location
 
+#Books ftp location
 BOOKSFTPDIR=ebooks
 echo "Your Local FTP directory for Books relative to ftp home directory is $BOOKSFTPDIR"
-#Books ftp location
 
 
 #Games ftp location
@@ -93,8 +103,6 @@ BOOKSMNTDIR=/home/media/books
 SABPORT=7960
 echo "the port used by SABNZB will be $SABPORT"
 
-
-
 #SICKBEARD Please enter the port for web access
 SICKPORT=7961
 echo "the port used by Sickbeard will be $SICKPORT"
@@ -105,18 +113,23 @@ echo "the port used by Couchpotato will be $COUCHPORT"
 
 #Headphones Please enter the port for web access
 HEADPORT=7963
+echo "the port used by Headphones will be $HEADPORT"
 
 #Lazy Librarian Please enter the port for web access
 BOOKPORT=7964
+echo "the port used by Lazy Librarian will be $BOOKPORT"
 
 #Mylar Please enter the port for web access
 MYLARPORT=7965
+echo "the port used by MYLAR will be $MYLARPORT"
 
 #Gamez Please enter the port for web access
 GAMESPORT=7966
+echo "the port used by Gamez will be $GAMESPORT"
 
 #Transmission RPC Port (web ui)
 TRANPORT=7967
+
 
 #Transmission peer port
 TRANPPORT=61724
@@ -131,6 +144,11 @@ echo "You will be using: $HOSTIP as the WAN address of your VPS"
 
 echo "if any of the above information is incorrect please quit this scrpit open it in vi and edit the first section to your requirements"
 clear
+
+###########################################################################################################################
+####################################    DO NOT EDIT ANYTHING BELOW THIS LINE  #############################################
+###########################################################################################################################
+
 
 #### MENU #####
 
