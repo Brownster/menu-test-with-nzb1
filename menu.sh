@@ -984,7 +984,7 @@ service transmission-daemon reload
 echo "transmission is now installed and running on $HOSTIP : $TRANPORT"
 sleep 3;;
 
-   "9" echo "######################"
+   "9") echo "######################"
 echo "## Installing nzedb ##"
 echo "######################"
 /etc/init.d/apparmor stop
