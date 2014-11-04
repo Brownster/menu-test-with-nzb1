@@ -16,13 +16,13 @@ vi menu.sh
 
 You will then need to edit the following details:
 
-DYNDNS=someplace.dydns-remote.com
+DYNDNS=someplace.dydns-remote.com (for vps server)
 
 WEBUSER=webuser
 
 WEBPASS=webpass
 
-SQUIDUSER=squid
+SQUIDUSER=squid (if you select to have a private proxy running on your vps)
 
 SQUIDPASS=hideme
 
@@ -30,13 +30,13 @@ SQUIDPORT=7629
 
 SSHPORT=2022
 
-FTPHOST=somewhere.dyndns-remote.com
+FTPHOST=somewhere.dyndns-remote.com (for your home)
 
-FTPUSER=ftpuser
+FTPUSER=ftpuser (ftp user account accessible from the vps)
 
 FTPPASS=ftppass
 
-FILMFTPDIR=films
+FILMFTPDIR=films (all ftp directories are relative to the home directory of the ftp account)
 
 TVFTPDIR=tvseries
 
@@ -68,7 +68,7 @@ MYLARPORT=7966
 
 MARAPORT=7967
 
-After that save the file by typing :wq and press enter then run the script by typing:
+After that save the file by typing Esc :wq and press enter then run the script by typing:
 
 ./menu.sh
 
