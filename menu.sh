@@ -153,6 +153,7 @@ do
     Install Transmission	(8)
     Install nZEDb indexer	(9)
     Install 1GB Swap space	(M)
+    Finnished Installing close ssh port 22 and reboot 	(F)
            (Q)uit
     ------------------------------
 EOF
@@ -1078,6 +1079,13 @@ echo 0 | sudo tee /proc/sys/vm/swappiness
 echo vm.swappiness = 0 | sudo tee -a /etc/sysctl.conf
 echo "Your 1gb swap space has been created"
 sleep 3;;
+
+    "F") ufw deny 22
+echo "SSH port is now closed please use $SSHPORT for SSH connection from now on"
+sleep 3
+echo "Rebooting"
+sleep 2
+shutdown -r now;;
 
     "Q")  exit                      ;;
     "q")  echo "case sensitive!!"   ;; 
