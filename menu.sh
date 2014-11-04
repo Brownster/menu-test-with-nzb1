@@ -1047,7 +1047,7 @@ sudo chmod -R 777 /var/www/nZEDb/nzbfiles
 echo "nZEDb is now installed goto $HOSTIP:80 to finnish off install"
 sleep 3;;
 
-    "0" echo "########################"
+    "0") echo "########################"
 echo "# installing curlftpfs #"
 echo "########################"
 sleep 1
