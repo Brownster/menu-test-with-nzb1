@@ -41,22 +41,26 @@ echo "Your local FTP server password is $FTPPASS"
 #ftp password
 FTPPASS=ftppass
 
+echo "Your Local FTP directory for Films relative to ftp home directory is $FILMFTPDIR"
 #film ftp location - relative to ftp home directory
 FILMFTPDIR=films
 
+echo "Your Local FTP directory for TV relative to ftp home directory is $TVFTPDIR"
 #TV ftp location
 TVFTPDIR=tvseries
 
+echo "Your Local FTP directory for Music relative to ftp home directory is $MUSICFTPDIR"
 #Music ftp location
 MUSICFTPDIR=music
 
+echo "Your Local FTP directory for Books relative to ftp home directory is $BOOKSFTPDIR"
 #Books ftp location
 BOOKSFTPDIR=ebooks
 
-#Books ftp location
+#Games ftp location
 GAMESFTPDIR=games
 
-#Books ftp location
+#Comics ftp location
 COMICSFTPDIR=comics
 
 #games mount location
@@ -65,12 +69,15 @@ GAMESMNTDIR=/home/media/games
 #comics mount location
 COMICSMNTDIR=/home/media/comics
 
+echo "Your VPS film dir mount point is $FILMMNTDIR"
 #films mount location
 FILMMNTDIR=/home/media/films
 
+echo "Your VPS TV dir mount point is $TVMNTDIR"
 #tv series mount location
 TVMNTDIR=/home/media/tv
 
+echo "your VPS Music dir mount point is $MUSICMNTDIR"
 #music mount location
 MUSICMNTDIR=/home/media/music
 
@@ -129,6 +136,8 @@ do
     Install SabNZB      (2)
     Install SickBeard   (3)
     Install Couchpotato (4)
+    Install Headphones	(5)
+    Install NZB indexer (6)
            (Q)uit
     ------------------------------
 EOF
