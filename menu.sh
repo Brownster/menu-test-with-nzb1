@@ -40,8 +40,6 @@ echo "the port remote SSH sessions will be set to is $SSHPORT"
 #dyn dns / no ip account resolving to your home ip if you are dynamic
 FTPHOST=somewhere.dyndns-remote.com
 echo "Your DYNDNS host name for your home is set to $FTPHOST"
-#FTP server address eith ip address if you have static address or 
-#dyn dns / no ip account resolving to your home ip if you are dynamic
 
 #ftp user
 FTPUSER=ftpuser
@@ -67,7 +65,6 @@ echo "Your Local FTP directory for Music relative to ftp home directory is $MUSI
 BOOKSFTPDIR=ebooks
 echo "Your Local FTP directory for Books relative to ftp home directory is $BOOKSFTPDIR"
 
-
 #Games ftp location
 GAMESFTPDIR=games
 
@@ -80,18 +77,17 @@ GAMESMNTDIR=/home/media/games
 #comics mount location
 COMICSMNTDIR=/home/media/comics
 
+#films mount location
 FILMMNTDIR=/home/media/films
 echo "Your VPS film dir mount point is $FILMMNTDIR"
-#films mount location
 
+#tv series mount location
 TVMNTDIR=/home/media/tv
 echo "Your VPS TV dir mount point is $TVMNTDIR"
-#tv series mount location
 
+#music mount location
 MUSICMNTDIR=/home/media/music
 echo "your VPS Music dir mount point is $MUSICMNTDIR"
-#music mount location
-
 
 #books mount location
 BOOKSMNTDIR=/home/media/books
@@ -125,11 +121,11 @@ echo "the port used by MYLAR will be $MYLARPORT"
 
 #Gamez Please enter the port for web access
 GAMESPORT=7966
-echo "the port used by Gamez will be $GAMESPORT"
+echo "the port for Gamez web ui will be $GAMESPORT"
 
 #Transmission RPC Port (web ui)
 TRANPORT=7967
-
+echo "the port for transmission web ui is $TRANPORT"
 
 #Transmission peer port
 TRANPPORT=61724
@@ -137,17 +133,23 @@ TRANPPORT=61724
 #Maraschino Web UI port
 MARAPORT=7979
 
-#SET WAN Address
-HOSTIP=`ifconfig|xargs|awk '{print $7}'|sed -e 's/[a-z]*:/''/'`
-echo "You will be using: $HOSTIP as the WAN address of your VPS"
-
-
-echo "if any of the above information is incorrect please quit this scrpit open it in vi and edit the first section to your requirements"
-clear
-
 ###########################################################################################################################
 ####################################    DO NOT EDIT ANYTHING BELOW THIS LINE  #############################################
 ###########################################################################################################################
+
+#SET WAN Address
+HOSTIP=`ifconfig|xargs|awk '{print $7}'|sed -e 's/[a-z]*:/''/'`
+echo "This script will be using: $HOSTIP as the WAN address of your VPS"
+
+echo "Please check the above information is incorrect" 
+echo "If it is not you will need to edit this file. Please exit "
+echo "this file when the menu appears shortly."
+echo "When you have exited you need to edit this file  in vi"
+echo "and edit the first section to meet your requirements"
+sleep 10
+
+clear
+
 
 
 #### MENU #####
@@ -157,7 +159,7 @@ do
     clear
     cat<<EOF
     ==============================
-    Install Menu For Sabnzb VPS
+    Marcs VPS install script Menu
     ------------------------------
     Please enter your choice:
 
@@ -170,7 +172,7 @@ do
     Install Squid Proxy 	(7)
     Install Transmission	(8)
     Install nZEDb indexer	(9)
-    Install 1GB Swap space	(M)
+    Create 1GB Swap space	(M)
     Finnished Installing close ssh port 22 and reboot 	(F)
            (Q)uit
     ------------------------------
@@ -205,10 +207,13 @@ else
 	exit 2
 	fi
 
+echo "username is $username"
+sleep 10
+
+
+
 #just in case we dont have git
 apt-get install git -y
-#install python now incase sabnzbsplus install fails
-apt-get install python-cheetah -y
 
 echo "####################"
 echo "## installing ufw ##"
@@ -378,6 +383,8 @@ chmod 777  /home/*/*;;
 echo "## installing sabnzbd ##"
 echo "########################"
 sleep 2
+#install python now incase sabnzbsplus install fails
+apt-get install python-cheetah -y
 apt-get install sabnzbdplus -y
 mv /etc/default/sabnzbdplus /home/backups/sabnzbd/sabnzbdplus.orig
 echo "change sab config"
@@ -618,13 +625,13 @@ cat > /etc/default/couchpotato << EOF
 # COPY THIS FILE TO /etc/default/couchpotato 
 # OPTIONS: CP_HOME, CP_USER, CP_DATA, CP_PIDFILE, PYTHON_BIN, CP_OPTS, SSD_OPTS
 
-CP_HOME=/home/$username/.couchpotato
-CP_USER=$username
+CP_HOME=/home/"$username"/.couchpotato
+CP_USER="$username"
 CP_DATA=/home/$username/.config/couchpotato
 CP_PIDFILE=/home/$username/.pid/couchpotato.pid
 EOF
 
-cat > /home/castro/.pid/couchpotato.pid << EOF
+cat > /home/$USERNAME/.pid/couchpotato.pid << EOF
 50004
 EOF
 
