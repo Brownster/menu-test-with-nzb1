@@ -18,9 +18,9 @@ git clone https://github.com/Brownster/menu-test-with-nzb1.git menush
 
 cd menush
 
-chmod 777 menu.sh
+chmod 777 *.*
 
-vi menu.sh
+vi settings.sh
 
 You will then need to edit the following details:
 
