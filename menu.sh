@@ -10,60 +10,46 @@
 
 #DYNDNS / noip host name that resolves into your vps ip address
 DYNDNS=someplace.dydns-remote.com
-echo "the current setting for your DNS Host name for your VPS is Currently $DYNDNS"
 
 #Please enter a user name for accessing sickbeard, couchpotato ect (replace "webuser")
 WEBUSER=webuser
-echo "Your current username for all web apps is $WEBUSER"
 
 #Please enter a password for accessing all the web apps sickbeard, couchpotato ect (replace "webpass")
 WEBPASS=webpass
-echo "Your current web app password id $WEBPASS"
 
 #Please enter a Username for Squid Proxy Server
 SQUIDUSER=squid
-echo "Squid Proxy User name is $SQUIDUSER"
 
 #Please enter a password for Squid Proxy Server
 SQUIDPASS=hideme
-echo "Your Squid Proxy password is $SQUIDPASS"
 
 #squid Proxy please enter the port for web access
 SQUIDPORT=7629
-echo "The IP Port being used by Squid Proxy is $SQUIDPORT"
 
 #SSH please enter the port for access
 SSHPORT=2022
-echo "the port remote SSH sessions will be set to is $SSHPORT"
 
 #FTP server address eith ip address if you have static address or 
 #dyn dns / no ip account resolving to your home ip if you are dynamic
 FTPHOST=somewhere.dyndns-remote.com
-echo "Your DYNDNS host name for your home is set to $FTPHOST"
 
 #ftp user
 FTPUSER=ftpuser
-echo "Your local ftp server username is $FTPUSER"
 
 #ftp password
 FTPPASS=ftppass
-echo "Your local FTP server password is $FTPPASS"
 
 #film ftp location - relative to ftp home directory
 FILMFTPDIR=films
-echo "Your Local FTP directory for Films relative to ftp home directory is $FILMFTPDIR"
 
 #TV ftp location
 TVFTPDIR=tvseries
-echo "Your Local FTP directory for TV relative to ftp home directory is $TVFTPDIR"
 
 #Music ftp location
 MUSICFTPDIR=music
-echo "Your Local FTP directory for Music relative to ftp home directory is $MUSICFTPDIR"
 
 #Books ftp location
 BOOKSFTPDIR=ebooks
-echo "Your Local FTP directory for Books relative to ftp home directory is $BOOKSFTPDIR"
 
 #Games ftp location
 GAMESFTPDIR=games
@@ -79,15 +65,13 @@ COMICSMNTDIR=/home/media/comics
 
 #films mount location
 FILMMNTDIR=/home/media/films
-echo "Your VPS film dir mount point is $FILMMNTDIR"
 
 #tv series mount location
 TVMNTDIR=/home/media/tv
-echo "Your VPS TV dir mount point is $TVMNTDIR"
 
 #music mount location
 MUSICMNTDIR=/home/media/music
-echo "your VPS Music dir mount point is $MUSICMNTDIR"
+
 
 #books mount location
 BOOKSMNTDIR=/home/media/books
@@ -136,6 +120,27 @@ MARAPORT=7979
 ###########################################################################################################################
 ####################################    DO NOT EDIT ANYTHING BELOW THIS LINE  #############################################
 ###########################################################################################################################
+
+echo "the current setting for your DNS Host name for your VPS is Currently $DYNDNS"
+echo "Your current username for all web apps is                            $WEBUSER"
+echo "Your current web app password id 					   $WEBPASS"
+echo "Squid Proxy User name is 						   $SQUIDUSER"
+echo "Your Squid Proxy password is 					   $SQUIDPASS"
+echo "The IP Port being used by Squid Proxy is 				   $SQUIDPORT"
+echo "the port remote SSH sessions will be set to is 			   $SSHPORT"
+echo "Your DYNDNS host name for your home is set to 			   $FTPHOST"
+echo "Your local ftp server username is 				   $FTPUSER"
+echo "Your local FTP server password is 				   $FTPPASS"
+echo "Your Local FTP directory for Films relative to ftp home directory is $FILMFTPDIR"
+echo "Your Local FTP directory for TV relative to ftp home directory is    $TVFTPDIR"
+echo "Your Local FTP directory for Music relative to ftp home directory is $MUSICFTPDIR"
+echo "Your Local FTP directory for Books relative to ftp home directory is $BOOKSFTPDIR"
+echo "Your VPS film dir mount point is 					   $FILMMNTDIR"
+echo "Your VPS TV dir mount point is 					   $TVMNTDIR"
+echo "your VPS Music dir mount point is 				   $MUSICMNTDIR"
+
+
+
 
 #SET WAN Address
 HOSTIP=`ifconfig|xargs|awk '{print $7}'|sed -e 's/[a-z]*:/''/'`
@@ -190,7 +195,7 @@ echo "## create a new user ##"
 echo "#######################"
 
 echo "we will add a user so we can stop using root, please provide username and password when prompted"
-sleep2
+sleep 2
 if [ $(id -u) -eq 0 ]; then
 	read -p "Enter username : " username
 	read -s -p "Enter password : " password
