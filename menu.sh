@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 source settings.sh
 
 echo "the current setting for your DNS Host name for your VPS is Currently  $DYNDNS"
@@ -73,7 +73,7 @@ do
 EOF
     read -n1 -s
     case "$REPLY" in
-    "1") source ./harden.sh;;
+    "1") source ./harden.sh ;;
 
     "2") source ./sabnzb.sh ;;
 
@@ -83,7 +83,7 @@ EOF
 
     "5") source ./head.sh ;;
 
-    "6") source ./lazy.sh;;
+    "6") source ./lazy.sh ;;
 
     "7") source ./squid.sh ;;
 
@@ -97,9 +97,9 @@ EOF
     
     "M") source ./mara.sh ;;
     
-    "S") source ./sick2.sh
+    "S") source ./sick2.sh ;;
     
-    "N" source ./nzb2.sh
+    "N" source ./nzb2.sh ;;
     "Q")  exit                      ;;
     "q")  echo "case sensitive!!"   ;; 
      * )  echo "invalid option"     ;;
