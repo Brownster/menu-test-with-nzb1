@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 echo "######################"
 echo "# add 1GB swap space #"
 echo "######################"
