@@ -457,7 +457,7 @@ start)
 #Start Sick Beard and send all messages to /dev/null.
 cd /home/$USER/.sickbeard
 echo "Starting Sick Beard"
-sudo -u $USER -EH nohup python /home/$USER/.sickbeard/SickBeard.py -q &gt; /dev/null 2&gt;&amp;1 &amp;
+sudo -u $USER -EH nohup python /home/$USER/.sickbeard/SickBeard.py -q > /dev/null 2>&1 &
 ;;
 stop)
 #Shutdown Sick Beard and delete the index.html files that wget generates.
