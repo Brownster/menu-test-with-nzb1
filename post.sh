@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 #####################################################################
 # POST PROCESSING SCRPITS USED BY SABNZB COUCHPOTATO SICKBEARD ETC ##
 #####################################################################
