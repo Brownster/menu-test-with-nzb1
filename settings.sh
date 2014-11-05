@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 ############################################################################
 ######## You must change all the variables below to suit your setup ########
