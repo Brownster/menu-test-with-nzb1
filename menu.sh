@@ -30,7 +30,6 @@ echo "the port for transmission web ui is                                   $TRA
 #SET WAN Address
 HOSTIP=`ifconfig|xargs|awk '{print $7}'|sed -e 's/[a-z]*:/''/'`
 echo "This script will be using: $HOSTIP as the WAN address of your VPS"
-
 echo "Please check the above information is incorrect" 
 echo "If it is not you will need to edit this file. Please exit "
 echo "this file when the menu appears shortly."
@@ -39,8 +38,6 @@ echo "and edit the first section to meet your requirements"
 sleep 10
 
 clear
-
-
 
 #### MENU #####
 
