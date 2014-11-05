@@ -416,6 +416,8 @@ echo "backing up sickbeard"
 cp sickbeard /home/backups/sickbeard
 mv sickbeard /home/$username/.sickbeard
 #cp /home/$username/.sickbeard/config.ini /etc/default/sickbeard
+#sed -i 's/USER = */USER="$username"/' /etc/init.d/sickbeard
+
 cat > /etc/init.d/sickbeard << EOF
 #! /bin/sh
 # Author: daemox
