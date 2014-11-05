@@ -66,6 +66,8 @@ do
     Install Post Process Script (P)
     Create 1GB Swap space	(M)
     Finnished Installing close ssh port 22 and reboot 	(F)
+    Install Sick atomic     (S)
+    Install Jonnyboy nzedb  (N)
            (Q)uit
     ------------------------------
 EOF
@@ -87,14 +89,17 @@ EOF
 
     "8") source ./trans.sh ;;
 
-   "9") source ./nzedb.sh ;;
+    "9") source ./nzedb.sh ;;
    
-    "X") source ./mara.sh ;;
+    "M") source ./mara.sh ;;
     
-    "0") source curlftp.sh ;;
+    "0") source ./curlftp.sh ;;
     
-    "M");;
-
+    "M") source ./mara.sh ;;
+    
+    "S") source ./sick2.sh
+    
+    "N" source ./nzb2.sh
     "Q")  exit                      ;;
     "q")  echo "case sensitive!!"   ;; 
      * )  echo "invalid option"     ;;
