@@ -214,10 +214,8 @@ else
 	exit 2
 	fi
 
-echo "username is $username"
-sleep 10
-
-
+echo "username that all apps will run under is $username"
+sleep 3
 
 #just in case we dont have git
 apt-get install git -y
