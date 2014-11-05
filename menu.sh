@@ -178,6 +178,7 @@ do
     Install Transmission	(8)
     Install nZEDb indexer	(9)
     Install Maraschino		(X)
+    Install Post Process Script (P)
     Create 1GB Swap space	(M)
     Finnished Installing close ssh port 22 and reboot 	(F)
            (Q)uit
@@ -482,6 +483,11 @@ update-rc.d sickbeard defaults
 /etc/init.d/sickbeard stop
 /etc/init.d/sickbeard start
 
+echo "CouchPotato should now be accessible at $HOSTIP : $COUCHPORT" ;;
+
+    "P") #####################################################################
+# POST PROCESSING SCRPITS USED BY SABNZB COUCHPOTATO SICKBEARD ETC ##
+#####################################################################
 git clone git://github.com/clinton-hall/nzbToMedia.git /tmp/nzbtomedia
 mv /tmp/nzbtomedia /home/$username/.nzbtomedia
 echo > /home/$username/.nzbtomedia/autoProcessMedia.cfg << EOF
@@ -641,10 +647,10 @@ d best-effort, 0-7 is valid data.
     #### comics - category that gets called for post-processing with Mylar
     [[comics]]
         enabled = 0
-        host = localhost
-        port= 8090
-        username=
-        password=
+        host = $HOSTIP
+        port= $MYLARPORT
+        username= $WEBUSER
+        password= $WEBPASS
         ###### ADVANCED USE - ONLY EDIT IF YOU KNOW WHAT YOU'RE DOING ######
         web_root=
         ssl=0
@@ -667,7 +673,7 @@ d best-effort, 0-7 is valid data.
         enabled = 0
         apikey =
         host = localhost
-        port = 8085
+        port = $GAMESPORT
         ######
         library = Set to path where you want the processed games to be moved to.
         ###### ADVANCED USE - ONLY EDIT IF YOU KNOW WHAT YOU'RE DOING ######
@@ -863,9 +869,7 @@ h path), Torrent Name, Torrent Label/Category.
     # be careful if your "group" is a common "real" word. Please report if you have any group replacments that would fall i
 n this category.
     remove_group =
-EOF
-echo "CouchPotato should now be accessible at $HOSTIP : $COUCHPORT" ;;
-
+EOF ;;
 
     "5") echo "###########################"
 echo "## installing Headphones ##"
