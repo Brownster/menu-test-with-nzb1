@@ -96,7 +96,7 @@ EOF
     
     "S") source ./sick2.sh ;;
     
-    "N" source ./nzb2.sh ;;
+    "N") source ./nzb2.sh ;;
     "Q")  exit                      ;;
     "q")  echo "case sensitive!!"   ;; 
      * )  echo "invalid option"     ;;
