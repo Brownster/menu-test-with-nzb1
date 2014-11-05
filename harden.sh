@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 add-apt-repository ppa:jcfp/ppa
 add-apt-repository ppa:transmissionbt/ppa
 apt-get update
