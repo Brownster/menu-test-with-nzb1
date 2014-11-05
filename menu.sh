@@ -345,8 +345,8 @@ sleep 2
 sudo apt-get install fail2ban -y
 echo "setting up fail2ban"
 sed -i 's/enabled = false/enabled = true/' /etc/fail2ban/jail.conf
-sed -i 's/port = sshd/port = $SSHPORT/' /etc/fail2ban/jail.conf
-sed -i 's/port = sshd/port = $SSHPORT/' /etc/fail2ban/jail.conf
+sed -i 's/port = sshd/port = '$SSHPORT'/' /etc/fail2ban/jail.conf
+sed -i 's/port = sshd/port = '$SSHPORT'/' /etc/fail2ban/jail.conf
 sed -i 's/maxretry = 5/maxretry = 3/' /etc/fail2ban/jail.conf
 
 echo "##########################"
